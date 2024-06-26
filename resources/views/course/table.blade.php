@@ -42,21 +42,17 @@
                   <th>Serial Number</th>
                   <th>Course Name</th>
                   <th>Department Name</th>
-                  <th>Course Duration</th>
-                  <th>Course Fee</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong></strong></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    
-                  </td>
+                  @php($sl=1)
+                  @foreach ($course as $course)
+                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$sl++}}</strong></td>
+                  <td>{{$course->c_name}}</td>
+                  <td>{{$course->dep}}</td>
                   <td><span class="badge bg-label-primary me-1">Active</span></td>
                   <td>
                     
@@ -72,7 +68,9 @@
                         >
                         <a class="dropdown-item" href="javascript:void(0);"
                           ><i class="bx bx-trash me-1"></i> Delete</a
-                        >
+                        > 
+                  @endforeach
+                  
                       
                     </div>
                   </td>

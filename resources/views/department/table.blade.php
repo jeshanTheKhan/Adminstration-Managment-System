@@ -41,9 +41,9 @@
                 <tr>
                   <th>Serial Number</th>
                   <th>Department Name</th>
-                  <th>Department Head Name</th>
-                  <th>Department Head Email</th>
-                  <th>Department Head Number</th>
+                  <th>Duration</th>
+                  <th>Monthly Fee</th>
+                  <th>Semester Fee</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -54,10 +54,10 @@
                 <tr>
                   <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$sl++}}</strong></td>
                   <td>{{$data->dep_name}}</td>
-                  <td>{{$data->dephead_name}}</td>
-                  <td>{{$data->email}}</td>
+                  <td>{{$data->duration}}</td>
+                  <td>{{$data->m_fee}} Tk</td>
                   <td>
-                    {{$data->phone}}
+                    {{$data->semester_fee}} TK
                   </td>
                   <td><span class="badge bg-label-primary me-1">Active</span></td>
                   <td>

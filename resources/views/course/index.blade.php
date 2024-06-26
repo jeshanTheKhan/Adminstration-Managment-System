@@ -37,7 +37,8 @@
               <small class="text-muted float-end">Merged input group</small>
             </div>
             <div class="card-body">
-              <form>
+              <form action="{{route('course.save')}}" method="post">
+                @csrf
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Name</label>
                   <div class="col-sm-10">
@@ -48,6 +49,7 @@
                       <input
                         type="text"
                         class="form-control"
+                        name="name"
                         id="basic-icon-default-fullname"
                         placeholder="Course Name"
                         aria-label="Course Name"
@@ -59,50 +61,16 @@
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Department</label>
                   <div class="col-sm-10">
-                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <select class="form-select" id="exampleFormControlSelect1" name="dep" aria-label="Default select example">
                       <option selected="">Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      @foreach ($dep as $dep)
+                      <option value="{{$dep->dep_name}}">{{$dep->dep_name}}</option>
+                      @endforeach
+                      
                     </select>
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Course Duration</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span class="input-group-text"><i class="bx bx-time"></i></span>
-                      <input
-                        type="text"
-                        id="basic-icon-default-email"
-                        class="form-control"
-                        placeholder="Duration Time"
-                        aria-label="Duration Time"
-                        aria-describedby="basic-icon-default-email2"
-                      />
-                      
-                    </div>
-                    
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label class="col-sm-2 form-label" for="basic-icon-default-phone">Course Fee</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-phone2" class="input-group-text"
-                        ><i class="bx bx-dollar"></i
-                      ></span>
-                      <input
-                        type="text"
-                        id="basic-icon-default-phone"
-                        class="form-control phone-mask"
-                        placeholder="658 799 8941"
-                        aria-label="658 799 8941"
-                        aria-describedby="basic-icon-default-phone2"
-                      />
-                    </div>
-                  </div>
-                </div>
+
                
                 <div class="row justify-content-end">
                   <div class="col-sm-10">

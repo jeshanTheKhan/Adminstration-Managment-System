@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers;
 use App\Models\Department;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
-class DepartmentController extends Controller
+class CourseController extends Controller
 {
     //
     public function index(){
-        return view('department.index');
+        $dep=Department::all();
+        return view('course.index',compact('dep'));
     }
 
     public function add(Request $req){
-        $store= new Department();
-        $store->dep_name=$req->name;
-        $store->dephead_name=$req->head_name;
-        $store->email=$req->email;
-        $store->phone=$req->phone;
-        $store->duration=$req->time;
-        $store->m_fee=$req->monthly_fee;
-        $store->semester_fee=$req->s_fee;
+        $store= new Course();
+        $store->c_name=$req->name;
+        $store->dep	=$req->dep;
+        
         $store->save();
         if($store){
             $notification = array(
-                'message' => 'Department Added Successfully',
+                'message' => 'Course Added Successfully',
                 'alert-type' => 'success'
             );
         }
@@ -37,7 +35,7 @@ class DepartmentController extends Controller
     }
 
     public function table(){
-        $data=Department::all();
-        return view('department.table',compact('data'));
+        $course=Course::all();
+        return view('course.table',compact('course'));
     }
 }

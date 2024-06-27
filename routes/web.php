@@ -34,3 +34,4 @@ Route::get('/Student-Table', [StudentController::class, 'table'])->name('all.stu
 
 Route::post('/Department-Form-Add', [DepartmentController::class, 'add'])->name('department.save');
 Route::post('/Course-Form-Add', [CourseController::class, 'add'])->name('course.save');
+Route::post('/Teacher-Infprmation-Add', [TeacherController::class, 'add'])->name('teacher.save');

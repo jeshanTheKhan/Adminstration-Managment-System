@@ -37,7 +37,8 @@
               <small class="text-muted float-end">Merged input group</small>
             </div>
             <div class="card-body">
-              <form>
+              <form method="post" action="{{route('teacher.save')}}" enctype="multipart/form-data">
+                @csrf
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Name</label>
                   <div class="col-sm-10">
@@ -48,6 +49,7 @@
                       <input
                         type="text"
                         class="form-control"
+                        name="name"
                         id="basic-icon-default-fullname"
                         placeholder="Teacher Name"
                         aria-label="Teacher Name"
@@ -59,11 +61,11 @@
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Department</label>
                   <div class="col-sm-10">
-                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <select class="form-select" id="exampleFormControlSelect1" name="department" aria-label="Default select example">
                       <option selected="">Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      @foreach ($dep as $dep)
+                      <option value="{{$dep->dep_name}}">{{$dep->dep_name}}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
@@ -76,6 +78,7 @@
                           type="text"
                           id="basic-icon-default-email"
                           class="form-control"
+                          name="email"
                           placeholder="john.doe"
                           aria-label="john.doe"
                           aria-describedby="basic-icon-default-email2"
@@ -95,6 +98,7 @@
                         <input
                           type="text"
                           id="basic-icon-default-phone"
+                          name="phone"
                           class="form-control phone-mask"
                           placeholder="658 799 8941"
                           aria-label="658 799 8941"
@@ -103,6 +107,20 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 form-label" for="basic-icon-default-phone">Image Upload</label>
+                    <div class="col-sm-10">
+                      <div class="input-group input-group-merge">
+                        <span id="basic-icon-default-phone2" class="input-group-text"
+                          ><i class="bx bx-image"></i
+                        ></span>
+                        <input class="form-control" name="image" type="file" id="formFile">
+                      </div>
+                    </div>
+                  </div>
+
+                 
                
                 <div class="row justify-content-end">
                   <div class="col-sm-10">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('c_id');
             $table->string('c_name');
             $table->string('dep');
+            $table->string('slug');
             $table->string('duration');
             $table->string('m_fee');
             $table->string('semester_fee');

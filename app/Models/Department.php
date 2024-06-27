@@ -14,6 +14,9 @@ class Department extends Model
         'dephead_name',
         'email',
         'phone',
+        'duration',
+        'm_fee',
+        'semester_fee',
         'dep_status',
     ];
 }

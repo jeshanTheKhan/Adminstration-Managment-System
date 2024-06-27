@@ -11,10 +11,8 @@ class Course extends Model
     protected $primaryKey  = 'c_id';
     protected $fillable = [
         'c_name',
-        'dep',
-        'duration',
-        'm_fee',
-        'semester_fee',
+        'dep',       
+        'slug',
         'status',
     ];
 }

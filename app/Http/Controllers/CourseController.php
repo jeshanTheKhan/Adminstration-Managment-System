@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use str;
 
 class CourseController extends Controller
 {
@@ -16,6 +17,7 @@ class CourseController extends Controller
     public function add(Request $req){
         $store= new Course();
         $store->c_name=$req->name;
+        $store->slug=str($req->name);
         $store->dep	=$req->dep;
         
         $store->save();

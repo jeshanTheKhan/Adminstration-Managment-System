@@ -50,12 +50,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong></strong></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
+                  @php($sl=1)
+                  @foreach ($teacher as $teacher)
                     
+                 
+                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$sl++}}</strong></td>
+                  <td>{{$teacher->teacher_name}}</td>
+                  <td>{{$teacher->department}}</td>
+                  <td>{{$teacher->email}}</td>
+                  <td>
+                    {{$teacher->phone}}
                   </td>
                   <td><span class="badge bg-label-primary me-1">Active</span></td>
                   <td>
@@ -77,7 +81,7 @@
                     </div>
                   </td>
                 </tr>
-
+                @endforeach
               </tbody>
               
 

@@ -41,6 +41,11 @@ class TeacherController extends Controller
         }
         return redirect()->back()->with($notification);
     }
+
+    public function table(){
+        $teacher=Teacher::all();
+        return view('teacher.table',compact('teacher'));
+    }
 }
 
 /*

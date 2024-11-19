@@ -69,7 +69,7 @@ class ProfileController extends Controller
         $store->email=$req->email;
         $store->phone=$req->phone;
         $store->state=$req->state;
-        $store->country=$req->phone;
+        $store->country=$req->country;
         $store->address=$req->address;
         $store->zipcode=$req->zipcode;
         

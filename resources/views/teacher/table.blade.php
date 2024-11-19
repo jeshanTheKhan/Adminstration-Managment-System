@@ -39,7 +39,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Serial Number</th>
+                  <th>Images</th>
                   <th>Teacher Name</th>
                   <th>Department Name</th>
                   <th>Email</th>
@@ -54,7 +54,9 @@
                   @foreach ($teacher as $teacher)
                     
                  
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$sl++}}</strong></td>
+                  <td>
+                    <img src="{{asset('storage/back/media/teacher/'.$teacher->image)}}" alt="Avatar" title="Change the avatar" width="100px">
+                  </td>
                   <td>{{$teacher->teacher_name}}</td>
                   <td>{{$teacher->department}}</td>
                   <td>{{$teacher->email}}</td>
@@ -68,13 +70,13 @@
                         <i class="bx bx-dots-vertical-rounded"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a class="dropdown-item" href="javascript:void(0);"
+                        {{-- <a class="dropdown-item" href="javascript:void(0);"
                           ><i class="bx bx-show me-1"></i> View</a
-                        >
-                        <a class="dropdown-item" href="javascript:void(0);"
+                        > --}}
+                        <a class="dropdown-item" href="{{route('teacher.edit',$teacher->teacher_id)}}"
                           ><i class="bx bx-edit-alt me-1"></i> Edit</a
                         >
-                        <a class="dropdown-item" href="javascript:void(0);"
+                        <a class="dropdown-item" href="{{route('teacher.del',$teacher->teacher_id)}}"
                           ><i class="bx bx-trash me-1"></i> Delete</a
                         >
                       

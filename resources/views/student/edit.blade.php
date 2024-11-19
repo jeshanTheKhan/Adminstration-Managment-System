@@ -37,7 +37,7 @@
               <small class="text-muted float-end">Merged input group</small>
             </div>
             <div class="card-body">
-              <form action="{{ route('student.save') }}" method="post" enctype="multipart/form-data">
+              <form action="{{ route('student.update') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Name</label>
@@ -51,6 +51,7 @@
                         class="form-control"
                         id="basic-icon-default-fullname"
                         name="s_name"
+                        value="{{ $data->name }}"
                         placeholder="Student Name"
                         aria-label="Student Name"
                         aria-describedby="basic-icon-default-fullname2"
@@ -72,6 +73,7 @@
                         class="form-control"
                         placeholder="Father's Name."
                         name="f_name"
+                        value="{{ $data->f_name }}"
                         aria-label="Father's Name."
                         aria-describedby="basic-icon-default-company2"
                       />
@@ -92,6 +94,7 @@
                           class="form-control"
                           placeholder="Mother's Name."
                           name="m_name"
+                          value="{{ $data->m_name }}"
                           aria-label="Mother's Name."
                           aria-describedby="basic-icon-default-company2"
                         />
@@ -102,14 +105,14 @@
                   <div class="mb-3 row">
                     <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Date Of Birth</label>
                     <div class="col-md-10">
-                        <input class="form-control" type="date" name="dob" value="2021-06-18" id="html5-date-input">
+                        <input class="form-control" type="date" value="{{ $data->dob }}" name="dob" value="2021-06-18" id="html5-date-input">
                     </div>
                   </div>
                   {{-- Address --}}
                   <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-message">Address</label>
                     <div class="col-sm-10">
-                      <textarea id="basic-default-message" name="address" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"></textarea>
+                      <textarea id="basic-default-message"  name="address" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2">{{ $data->address }}</textarea>
                     </div>
                   </div>
                 <div class="row mb-3">
@@ -123,6 +126,7 @@
                         class="form-control"
                         placeholder="john.doe"
                         name="email"
+                        value="{{ $data->email }}"
                         aria-label="john.doe"
                         aria-describedby="basic-icon-default-email2"
                       />
@@ -144,6 +148,7 @@
                         class="form-control phone-mask"
                         placeholder="658 799 8941"
                         name="number"
+                        value="{{ $data->number }}"
                         aria-label="658 799 8941"
                         aria-describedby="basic-icon-default-phone2"
                       />
@@ -164,6 +169,7 @@
                           class="form-control"
                           placeholder="Gardian's Name."
                           name="g_name"
+                          value="{{ $data->g_name }}"
                           aria-label="Gardian's Name."
                           aria-describedby="basic-icon-default-company2"
                         />
@@ -184,6 +190,7 @@
                           class="form-control phone-mask"
                           placeholder="658 799 8941"
                           name="g_number"
+                          value="{{ $data->g_number }}"
                           aria-label="658 799 8941"
                           aria-describedby="basic-icon-default-phone2"
                         />
@@ -204,6 +211,7 @@
                           class="form-control"
                           placeholder="Relation."
                           name="g_relation"
+                          value="{{ $data->g_rel }}"
                           aria-label="Relation."
                           aria-describedby="basic-icon-default-company2"
                         />
@@ -215,7 +223,7 @@
                     <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Department</label>
                     <div class="col-sm-10">
                       <select class="form-select" name="department" id="exampleFormControlSelect1" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected>{{ $data->dep }}</option>
                         @foreach ($dep as $dep)
                         <option value="{{ $dep->dep_name }}">{{ $dep->dep_name }}</option>
                         @endforeach
@@ -237,6 +245,7 @@
                           class="form-control"
                           placeholder="222-225-019."
                           name="s_id"
+                          value="{{ $data->s_id }}"
                           aria-label="222-115-019."
                           aria-describedby="basic-icon-default-company2"
                         />
@@ -257,6 +266,7 @@
                         class="form-control"
                         placeholder="57th."
                         name="batch"
+                        value="{{ $data->s_batch }}"
                         aria-label="57th."
                         aria-describedby="basic-icon-default-company2"
                       />
@@ -277,6 +287,7 @@
                         class="form-control"
                         placeholder="A."
                         name="section"
+                        value="{{ $data->s_section }}"
                         aria-label="A."
                         aria-describedby="basic-icon-default-company2"
                       />
@@ -298,6 +309,8 @@
 
                 <div class="row justify-content-end">
                   <div class="col-sm-10">
+                    <input type="hidden" value="{{ $data->std_id }}" name="c_id">
+                    <input type="hidden" name="old_img" value="{{$data->image}}">
                     <button type="submit" class="btn btn-primary">Send</button>
                   </div>
                 </div>

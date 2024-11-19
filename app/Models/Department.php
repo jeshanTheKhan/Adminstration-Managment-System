@@ -19,4 +19,5 @@ class Department extends Model
         'semester_fee',
         'dep_status',
     ];
+    
 }

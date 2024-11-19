@@ -49,34 +49,36 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong></strong></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
+                @php($sl=1)
+               @foreach ($data as $data)
+               <tr>
+                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $sl++ }}</strong></td>
+                <td>{{ $data->s_id }}</td>
+                <td>{{ $data->name }}</td>
+                <td>{{ $data->email }}</td>
+                <td>{{ $data->number }}
+                </td>
+                <td><span class="badge bg-label-primary me-1">Active</span></td>
+                <td>
+                  
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                      <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{route('student.view',$data->std_id)}}"
+                        ><i class="bx bx-show me-1"></i> View</a
+                      >
+                      <a class="dropdown-item" href="{{route('student.edit',$data->std_id)}}"
+                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                      >
+                      <a class="dropdown-item" href="{{route('student.del',$data->std_id)}}"
+                        ><i class="bx bx-trash me-1"></i> Delete</a
+                      >
                     
-                  </td>
-                  <td><span class="badge bg-label-primary me-1">Active</span></td>
-                  <td>
-                    
-                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                        <i class="bx bx-dots-vertical-rounded"></i>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="javascript:void(0);"
-                          ><i class="bx bx-show me-1"></i> View</a
-                        >
-                        <a class="dropdown-item" href="javascript:void(0);"
-                          ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                        >
-                        <a class="dropdown-item" href="javascript:void(0);"
-                          ><i class="bx bx-trash me-1"></i> Delete</a
-                        >
-                      
-                    </div>
-                  </td>
-                </tr>
+                  </div>
+                </td>
+              </tr>
+               @endforeach
 
               </tbody>
               

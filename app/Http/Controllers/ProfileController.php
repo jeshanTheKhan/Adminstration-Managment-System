@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -56,5 +57,37 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+
+
+    public function upload(Request $req){
+        
+        $store= User::find($req->c_id);
+        $store->name=$req->name;
+        $store->lname=$req->lname;
+        $store->email=$req->email;
+        $store->phone=$req->phone;
+        $store->state=$req->state;
+        $store->country=$req->phone;
+        $store->address=$req->address;
+        $store->zipcode=$req->zipcode;
+        
+         $store->save();
+        if($store){
+            $notification = array(
+                'message' => 'Profile Update Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+        else{
+            $notification = array(
+                'message' => 'Failed To Update!!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        
     }
 }

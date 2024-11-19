@@ -15,4 +15,5 @@ class Course extends Model
         'slug',
         'status',
     ];
+    
 }

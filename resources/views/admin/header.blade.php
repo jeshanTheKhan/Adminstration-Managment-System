@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('storage/back/assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{asset('storage/back/assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{asset('storage/back/assets/css/demo.css')}}" />
+    <link rel="stylesheet" href="{{asset('storage/back/assets/css/view.css')}}" />
 
     <!-- Toaster & Sweetalert Style -->
     <link href="{{asset('public/backend/build/css/toastr.css')}}" rel="stylesheet">
